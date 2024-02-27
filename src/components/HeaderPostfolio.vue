@@ -1,4 +1,5 @@
 <script setup>
+import ContactMe from './ContactMe.vue';
 </script>
 
 <template>
@@ -7,7 +8,11 @@
         <h3>
             Phetlada  Thongkarn
         </h3>
-        <h3>I am a <span id="spin"></span></h3>
+        <h2><span id="spin"></span></h2>
+        <div class="position-under">
+            <ContactMe></ContactMe>   
+        </div>
+        
     </div>
 </template>
 
@@ -16,45 +21,55 @@ h3 {
     font-weight: 500;
     font-size: 2.6rem;
     position: relative;
-    color: rgb(54, 53, 53);
+    color: #303481;
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 2.0rem;
+    position: relative;
+    color: #303481;
 }
 
 h1 {
     font-weight: 500;
     font-size: 1.5rem;
     position: relative;
-    color: rgb(54, 53, 53);
+    color: #9fc5e1;
+}
+.position-under{
+    position: relative;
+    top: 170px;
 }
 .greetings h3 {
-    text-align: left;
-    top: 100px;
+    text-align: center;
+    top: 120px;
+}
+.greetings h2 {
+    text-align: center;
+    top: 120px;
 }
 .greetings h1 {
-    text-align: left;
-    top: 100px;
+    text-align: center;
+    top: 120px;
 }
 
 #spin {
-  color: red;
+  color: #303481;
+  font-weight: 500;
 }
 
 #spin:after {
   content: "";
+  font-weight: 500;
   animation: spin 5s linear infinite;
 }
 
 @keyframes spin {
   0% { content: "software deverloper"; }
-  10% { content: "front-end deverloper"; }
-  20% { content: "back-end deverloper"; }
-  30% { content: "full-stack deverloper"; }
-  40% { content: "software deverloper"; }
-  50% { content: "front-end deverloper"; }
-  60% { content: "back-end deverloper"; }
-  70% { content: "full-stack deverloper"; }
-  80% { content: "software deverloper"; }
-  90% { content: "front-end deverloper"; }
-  100% { content: "back-end deverloper"; }
+  40% { content: "front-end deverloper"; }
+  70% { content: "back-end deverloper"; }
+  100% { content: "full-stack deverloper"; }
 }
 @media (min-width: 1024px) {
     .greetings h3 {
@@ -65,5 +80,13 @@ h1 {
         text-align: center;
         top: 150px;
     }
+    .greetings h2 {
+    text-align: center;
+    top: 150px;
+    .position-under{
+    position: relative;
+    top: 180px;
+}
+}
 }
 </style>
