@@ -1,15 +1,27 @@
 <script setup>
 </script>
 
+<script>
+export default {
+  data() {
+    return {
+      toggleA: true
+    };
+  }
+}
+</script>
+
 <template>
-    <div class="card greetings">
-        <h1>Contact Me</h1>
-        <div class="flex items-center justify-center">
-            <svg class="h-4 w-4 text-yellow-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />  <polyline points="22,6 12,13 2,6" /></svg>
-            <a href="mailto:phetlada.tongkan@gmail.com" class="p-1">phetlada.tongkan@gmail.com</a>
-        </div>
-       
+  <transition name="slide" appear>
+    <div class="alert alert-info" v-if="toggleA">
+      <a class="card greetings flex items-center justify-center" :href="'mailto:phetlada.tongkan@gmail.com'" @click="navigate">
+          <div class="flex items-center justify-center">
+              <svg class="h-5 w-5 text-yellow-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />  <polyline points="22,6 12,13 2,6" /></svg>
+              <h1 class="ml-2">Contact Me</h1>
+          </div>
+        </a>
     </div>
+  </transition>
 </template>
 
 <style scoped>
@@ -41,17 +53,6 @@ h1 {
     top: 120px;
 }
 
-#spin {
-  color: #303481;
-  font-weight: 500;
-}
-
-#spin:after {
-  content: "";
-  font-weight: 500;
-  animation: spin 5s linear infinite;
-}
-
 .card {
   /* Add shadows to create the "card" effect */
   padding: 2%;
@@ -66,14 +67,43 @@ h1 {
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: #608fbd;
 }
 
-@keyframes spin {
-  0% { content: "software deverloper"; }
-  40% { content: "front-end deverloper"; }
-  70% { content: "back-end deverloper"; }
-  100% { content: "full-stack deverloper"; }
+.slide-enter { 
+  opacity: 0;
 }
+
+.slide-enter-active {
+  animation: slide-in 1s ease-in forwards;
+  transition: opacity .5s;
+}
+
+.slide-leave-active {
+  animation: slide-out 1s ease-out forwards; 
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+
+@keyframes slide-in {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+
 @media (min-width: 1024px) {
 }
 </style>
