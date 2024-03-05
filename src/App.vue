@@ -9,6 +9,7 @@ export default {
     return {
       toggleA: true,
       toggleB: true,
+      list_logo:"bootstrap_logo",
       data_project_intren : {
         company:"Creden Asia Co., Lid.",
         career:"Software Deverloper Internship",
@@ -44,25 +45,23 @@ export default {
         time:"Jun. 2022 - Present.",
         content_card : [
           {
-            topic:"Website Developer",
+            topic:"Website Development",
             detail_topic : [
-              "Write clean and efficient HTML, CSS, and JavaScript code to create beautiful and user-friendly landing pages.",
-              "Collaborate with UI/UX designers to deliver landing pages that meet user needs."
+              "Website development is a multi-step process that varies depending on the website's complexity and user goals.",
+              "Writing code in front-end , back-end. And testing the website across various browsers and devices",
             ]
           },
           {
             topic:"Web scraping",
             detail_topic : [
-              "Design and build new APIs based on business requirements.",
-              "Write API code in a suitable language (e.g., Lua,Python,Node.js).",
-              "Create API documentation for developers."
+              "Web scraping refers to the process of automatically extracting data from websites. This data can be in various formats, such as text, images, or even links."
             ]
           },
           {
             topic:"Data Cleaning",
             detail_topic : [
-              "Developed a back-office system to manage and organize data for a company.",
-              "The system was designed to be user-friendly and efficient, allowing users to easily manage their data.",
+              "Develop code or scripts to clean data based on defined rules.",
+              "Thoroughly test the system with various sample datasets to assess performance and accuracy.",
             ]
           }
         ]
@@ -73,17 +72,17 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div id="app">
     <!-- Navigation Bar -->
     <nav class="flex-no-wrap fixed relative top-0 flex w-full items-center justify-between bg-[#FBFBFB] py-2 shadow-md shadow-black/5 dark:bg-gray-300 dark:shadow-gray/10 lg:flex-wrap lg:justify-start lg:py-4">
       <div class="mx-auto">
         <div class="flex items-center justify-between">
           <div>
-            <h1 class="text-sm md:text-base">Phetlada</h1>
+            <h1 class="text-sm md:text-base">Phetlada Thongkarn</h1>
           </div>
-          <div>
+          <!-- <div>
             <h1 class="text-sm md:text-base">Home | About | Resume | Projects</h1>
-          </div>
+          </div> -->
         </div>
       </div>
     </nav>
@@ -153,17 +152,26 @@ export default {
                   <img v-if="index == 1" class="rounded" src="./assets/task-api.webp" />
                   <img v-if="index == 2" class="rounded" src="./assets/project-backoffice.webp" />
                   <div class="content-card">
-                    <span class="font-bold font-xl">{{ value.topic }}</span>
+                    <span class="flex font-bold font-xl">{{ value.topic }}<a v-if="index == 0" href="https://data.creden.co/"><svg class="h-4 w-4 md:h-6 md:w-6 text-red-500 font-bold"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />  <polyline points="15 3 21 3 21 9" />  <line x1="10" y1="14" x2="21" y2="3" /></svg></a></span>
                     <ul class="list-disc text-ellipsis ml-8 text-base">
                       <li v-for="sentence in value.detail_topic">{{ sentence  }}</li>
                     </ul>
                   </div>
                   <div class="bottom-card flex justify-end">
-                    <button
-                      class="align-middle select-none font-sans font-bold text-center uppercase"
-                      type="button">
-                      Read More
-                    </button>
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/html.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/css.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/vue.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/bootstrap.svg" />   
+
+                    <img v-if="index == 1" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/mongodb.svg" />
+                    <img v-if="index == 1" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/lua.svg" />
+
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/mongodb.svg" />
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/lua.svg" />
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/html.svg" />
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/css.svg" />
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/vue.svg" />
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/bootstrap.svg" />
                   </div>
                 </card>
 
@@ -192,24 +200,50 @@ export default {
                   <img v-if="index == 1" class="rounded" src="./assets/wep-scraping.webp" />
                   <img v-if="index == 2" class="rounded" src="./assets/data-cleansing.webp" />
                   <div class="content-card">
-                    <span class="font-bold font-xl">{{ value.topic }}</span>
+                    <span class="flex font-bold font-xl">{{ value.topic }}<a v-if="index == 0" href="https://data.creden.co/"><svg class="h-4 w-4 md:h-6 md:w-6 text-red-500 font-bold"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round">  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />  <polyline points="15 3 21 3 21 9" />  <line x1="10" y1="14" x2="21" y2="3" /></svg></a></span>
                     <ul class="list-disc text-ellipsis ml-8 text-base">
                       <li v-for="sentence in value.detail_topic">{{ sentence  }}</li>
                     </ul>
                   </div>
                   <div class="bottom-card flex justify-end">
-                    <button
-                      class="align-middle select-none font-sans font-bold text-center uppercase"
-                      type="button">
-                      Read More
-                    </button>
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/postgresql.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/mongodb.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/lua.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/python.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/html.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/css.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/vue.svg" />
+                    <img v-if="index == 0" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/bootstrap.svg" /> 
+
+                    <img v-if="index == 1" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/mongodb.svg" />
+                    <img v-if="index == 1" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/python.svg" />
+                    <img v-if="index == 1" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/airflow.svg" />
+                    <img v-if="index == 1" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/docker.svg" />
+                    
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/mongodb.svg" />
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/postgresql.svg" />
+                    <img v-if="index == 2" class="md:h-8 md:w-8 h-5 w-5 rounded" src="./assets/logo/python.svg" />
                   </div>
                 </card>
-
               </div>
             </div>
           </transition>
         </div>
+      </div>
+      <div class="flex items-center justify-center mt-5">
+        <p class="font-bold font-xl">I apologize, this website is under construction.</p>
+        <p class="font-bold font-xl">Thank you for your understanding.</p>
+      </div>
+      <div class="bg-footer">
+        <div class="box-content">
+          <transition name="slide" appear>
+            <div class="side-content" v-if="toggleB">
+              <div>Email : <a :href="'mailto:phetlada.tongkan@gmail.com'" @click="navigate" >phetlada.tongkan@gmail.com</a></div>
+              <div>Github :<a href="https://github.com/Phetlada">https://github.com/Phetlada</a></div>
+              <div>I'm looking for a new job. THANK YOU!</div>
+            </div>
+          </transition>
+          </div>
       </div>
     </div>
   </div>
@@ -217,6 +251,9 @@ export default {
 
 
 <style scoped>
+.example[data-v-f3f3eg9] {
+  color: red;
+}
 button {
   background-color: #303481;
   padding: 2%;
@@ -271,6 +308,14 @@ nav{
   height: 500px;
   background-image: linear-gradient(#f5f5f5, #D6E6F2);
   margin-bottom: 15px;
+}
+
+.bg-footer {
+  color: #222566;
+  margin-top: 15px;
+  height: auto;
+  width: 100%;
+  background-color: #D6E6F2;
 }
 
 .bg-content-work-experience {

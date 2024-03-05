@@ -8,6 +8,7 @@ import ContactMe from './ContactMe.vue';
         <h3>
             Phetlada  Thongkarn
         </h3>
+        <h1>I'm looking for a new job.</h1>
         <h2><span id="spin"></span></h2>
         <div class="position-under">
             <ContactMe></ContactMe>   
