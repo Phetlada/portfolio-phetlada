@@ -81,12 +81,13 @@ h1 {
         top: 150px;
     }
     .greetings h2 {
-    text-align: center;
-    top: 150px;
+        text-align: center;
+        top: 150px;
+    }
     .position-under{
-    position: relative;
-    top: 180px;
-}
-}
+        position: relative;
+        top: 180px;
+    }
+
 }
 </style>
